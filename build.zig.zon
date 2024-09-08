@@ -1,0 +1,16 @@
+.{
+    .name = "apollo",
+    .version = "1.0.0",
+    .paths = .{
+        "src",
+        "build.zig",
+        "build.zig.zon",
+        "README.md",
+    },
+    .dependencies = .{
+        .zigimg = .{
+            .url = "https://github.com/zigimg/zigimg/archive/refs/heads/master.tar.gz",
+            .hash = "122013646f7038ecc71ddf8a0d7de346d29a6ec40140af57f838b0a975c69af512b0",
+        },
+    },
+}

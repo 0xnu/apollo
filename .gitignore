@@ -1,1 +1,39 @@
+# Zig build artifacts
+.zig-cache
+zig-out/
+
+# Executables
+*.exe
+*.out
+
+# Build files
+build/
+bin/
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+deps/
+
+# Any log files
+*.log
+
+# Any temporary files
+*.tmp
+
+# Environment variables file
+.env
+
+# Ignore any local configuration files
+*.local.zig
+
+# Others
 push.sh

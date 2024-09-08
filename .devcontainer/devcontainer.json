@@ -1,0 +1,15 @@
+{
+  "name": "Zig Development",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/zig:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ziglang.vscode-zig", "augusterame.zls-vscode"]
+    }
+  },
+  "forwardPorts": [8000],
+  "postCreateCommand": "zig version",
+  "remoteUser": "vscode"
+}
