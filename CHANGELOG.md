@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3 - 2024-09-15 - @0xnu
+* Added: mnist_convert.zig and mnist_model.tflite
+* Updated: build.zig and README.md
+
 ## 1.0.2 - 2024-09-15 - @0xnu
 * Added:
   + mnist.ipynb

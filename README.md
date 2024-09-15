@@ -28,7 +28,13 @@ zig build run
 
 ## TEST ##
 zig build test
+
+## TFLITE ##
+brew install tensorflow
+zig build run-mnist-convert
 ```
+
+> mnist_model.keras size is 2.7 MB and mnist_model.tflite size is 12 Bytes.
 
 The resulting binary will be located in `zig-out/`.
 

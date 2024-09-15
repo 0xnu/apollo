@@ -47,6 +47,27 @@ pub fn build(b: *std.Build) void {
     const run_step = b.step("run", "Execute the example application");
     run_step.dependOn(&run_cmd.step);
 
+    // MNIST Conversion
+    const mnist_convert = b.addExecutable(.{
+        .name = "mnist_convert",
+        .root_source_file = b.path("examples/mnist_convert.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
+    mnist_convert.addIncludePath(.{ .cwd_relative = "/usr/local/include" });
+    mnist_convert.addLibraryPath(.{ .cwd_relative = "/usr/local/lib" });
+    mnist_convert.linkSystemLibrary("tensorflow");
+    b.installArtifact(mnist_convert);
+
+    const run_mnist_convert = b.addRunArtifact(mnist_convert);
+    run_mnist_convert.step.dependOn(b.getInstallStep());
+    if (b.args) |args| {
+        run_mnist_convert.addArgs(args);
+    }
+
+    const run_mnist_convert_step = b.step("run-mnist-convert", "Run the MNIST conversion");
+    run_mnist_convert_step.dependOn(&run_mnist_convert.step);
+
     // Test
     const lib_tests = b.addTest(.{
         .root_source_file = b.path("src/apollo.zig"),
